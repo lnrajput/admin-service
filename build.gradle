@@ -1,0 +1,34 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.5.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.admin.tool'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	compileOnly('org.projectlombok:lombok')
+	compile('com.jcraft:jsch:0.1.54')
+	compile('io.springfox:springfox-swagger2:2.7.0')
+	compile('io.springfox:springfox-swagger-ui:2.7.0')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
